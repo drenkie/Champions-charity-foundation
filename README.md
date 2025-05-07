@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Join Our WhatsApp Group</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background-color: #e6f2ff;
+      padding: 40px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    h1 {
+      color: #075E54;
+    }
+    img.logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    canvas {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button, a.join-btn {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover, a.join-btn:hover {
+      background-color: #128c7e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="logo">
+    <h1>Welcome to Our WhatsApp Group!</h1>
+    <p>Scan the QR code below or tap the button to join:</p>
+    <canvas id="qrCanvas"></canvas>
+    <div class="buttons">
+      <a class="join-btn" href="https://chat.whatsapp.com/KFCY7IpZ5emEgYFNjNjyYR" target="_blank">Join Now</a>
+      <button onclick="downloadQR()">Download QR</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <script>
+    const qr = new QRious({
+      element: document.getElementById('qrCanvas'),
+      value: 'https://chat.whatsapp.com/KFCY7IpZ5emEgYFNjNjyYR',
+      size: 200
+    });
+
+    function downloadQR() {
+      const canvas = document.getElementById('qrCanvas');
+      const link = document.createElement('a');
+      link.download = 'whatsapp_qr.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+  </script>
+</body>
+</html>
